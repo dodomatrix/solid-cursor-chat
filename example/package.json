@@ -1,0 +1,26 @@
+{
+  "name": "solid-cursor-chat-example",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^2.7.3",
+    "vite-plugin-solid": "^2.1.4"
+  },
+  "dependencies": {
+    "solid-js": "^1.3.6"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
