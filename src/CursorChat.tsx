@@ -60,7 +60,7 @@ function CursorChat({
         });
 
         yomo.on('connected', () => {
-            room && yomo && yomo.toRoom(room);
+            room && yomo.toRoom(room);
 
             yomo.on$<CursorMessage>('online')
                 .pipe(filter((data) => data.id !== ID))
