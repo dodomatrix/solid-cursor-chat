@@ -1,6 +1,6 @@
 {
   "name": "solid-cursor-chat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A SolidJS component for cursor chat",
   "keywords": [
     "CursorChat",
@@ -41,15 +41,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "solid": "./dist/source/index.jsx",
-      "import": "./dist/esm/index.js",
-      "browser": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "tabWidth": 4,

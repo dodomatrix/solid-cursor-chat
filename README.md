@@ -80,7 +80,6 @@ Response data:
 
 ```javascript
 import CursorChat from 'solid-cursor-chat';
-import 'solid-cursor-chat/esm/index.css';
 
 const App = () => {
     return (
@@ -97,8 +96,8 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
-```
 
+```
 -   `presenceURL: string`: to set the WebSocket service address.
 -   `presenceAuth: { type: 'publickey' | 'token'; publicKey?: string; endpoint?: string; }`: to set `presencejs` service Auth
 -   `room?: string`: to set room.

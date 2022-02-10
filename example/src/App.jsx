@@ -1,5 +1,4 @@
 import CursorChat from '../../dist/esm';
-import '../../dist/esm/cursor-chat.css';
 
 function App() {
     return (
