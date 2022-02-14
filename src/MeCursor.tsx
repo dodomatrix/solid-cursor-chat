@@ -21,9 +21,9 @@ export default function MeCursor({
     const onKeydown = (e: KeyboardEvent) => {
         if (e.code === 'Slash') {
             setShowInput(true);
-            if ($input) {
-                $input.focus();
-            }
+            setTimeout(() => {
+                $input && $input.focus();
+            }, 500);
         }
 
         if (e.code === 'Escape') {
@@ -82,7 +82,6 @@ export default function MeCursor({
                     <span>{inputValue()}</span>
                     <input
                         ref={$input}
-                        value={inputValue()}
                         placeholder="Say something"
                         onInput={onInput}
                     />

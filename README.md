@@ -33,11 +33,14 @@ $ pnpm i solid-cursor-chat
 
 Login with your Github account on `https://presence.yomo.run`, will get a free `app_id` and `app_secret`
 
-then, add `/api/auth` api:
+then, add serverless functionality to [netlify](https://docs.netlify.com/functions/build-with-javascript):
 
 ```javascript
-export default async function handler(req, res) {
-    if (req.method === 'GET') {
+// example/functions/presence-auth.js
+const fetch = require('node-fetch')
+
+exports.handler = async function (event, context) {
+    if (event.httpMethod === 'GET') {
         try {
             const response = await fetch('https://prsc.yomo.dev/api/v1/auth', {
                 method: 'POST',
@@ -45,28 +48,36 @@ export default async function handler(req, res) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    app_id: 'app_id',
-                    app_secret: 'app_secret',
+                    app_id: process.env.APP_ID,
+                    app_secret: process.env.APP_SECRET,
                 }),
             });
             const data = await response.json();
             const token = data.data;
             if (token) {
-                res.status(200).json(token);
+                return {
+                    statusCode: 200,
+                    body: JSON.stringify(token),
+                };
             } else {
-                res.status(400).json({ msg: data.message });
+                return {
+                    statusCode: 400,
+                    body: JSON.stringify({ msg: data.message }),
+                };
             }
         } catch (error) {
-            if (typeof error === 'string') {
-                res.status(500).json({ msg: error });
-            } else if (error instanceof Error) {
-                res.status(500).json({ msg: error.message });
-            }
+            return {
+                statusCode: 500,
+                body: JSON.stringify({ msg: error.message }),
+            };
         }
     } else {
-        // Handle any other HTTP method
+        return {
+            statusCode: 400,
+            body: JSON.stringify({  msg: '' }),
+        };
     }
-}
+};
 ```
 Response data:
 
@@ -84,13 +95,13 @@ import CursorChat from 'solid-cursor-chat';
 const App = () => {
     return (
         <CursorChat
+            showLatency
             presenceURL="wss://prsc.yomo.dev"
             presenceAuth={{
                 type: 'token',
-                endpoint: '/api/auth',
+                endpoint: '/.netlify/functions/presence-auth',
             }}
             avatar="https://cursor-chat-example.vercel.app/_next/image?url=%2Flogo.png&w=256&q=75"
-            theme="light"
         />
     );
 };
