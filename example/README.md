@@ -20,7 +20,7 @@ npm install netlify-cli -g
 
     The `netlify.toml` file is where we configure how the site builds and where your serverless functions live.
 
-2. In `netlify.toml`, add a `[build]` section and add `publish = "site/dist"` and `functions = "functions"` values
+2. In `netlify.toml`, add a `[build]` section and add `publish = "dist"` and `functions = "functions"` values
 
 3. We need to create this site in Netlify
 
