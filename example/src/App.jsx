@@ -1,4 +1,4 @@
-// import CursorChat from '../../../dist/esm';
+// import CursorChat from '../../dist/esm';
 import CursorChat from 'solid-cursor-chat';
 import logo from './assets/logo.png';
 import avatar from './assets/avatar.png';

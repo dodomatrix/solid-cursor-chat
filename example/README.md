@@ -1,9 +1,10 @@
 ## Configure environment variables
+
 Create an .env file in the root of the example directory and fill in the environment variables according to the .env.example file
 
 ## Build front-end files
+
 ```bash
-cd site
 npm run build
 ```
 
@@ -38,3 +39,9 @@ npm install netlify-cli -g
     ```bash
     netlify deploy -p
     ```
+
+## Develop
+
+```bash
+netlify dev
+```
