@@ -31,7 +31,7 @@ $ pnpm i solid-cursor-chat
 
 ### Request free dev/test account
 
-Login with your Github account on `https://presence.yomo.run`, will get a free `app_id` and `app_secret`
+Login with your Github account on `https://presencejs.yomo.run`, will get a free `app_id` and `app_secret`
 
 then, add serverless functionality to [netlify](https://docs.netlify.com/functions/build-with-javascript):
 
