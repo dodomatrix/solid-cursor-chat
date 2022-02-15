@@ -37,7 +37,7 @@ then, add serverless functionality to [netlify](https://docs.netlify.com/functio
 
 ```javascript
 // example/functions/presence-auth.js
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
     if (event.httpMethod === 'GET') {
@@ -74,11 +74,12 @@ exports.handler = async function (event, context) {
     } else {
         return {
             statusCode: 400,
-            body: JSON.stringify({  msg: '' }),
+            body: JSON.stringify({ msg: '' }),
         };
     }
 };
 ```
+
 Response data:
 
 ```json
@@ -90,6 +91,7 @@ Response data:
 ### Integrate to your project
 
 ```javascript
+import { render } from 'solid-js/web';
 import CursorChat from 'solid-cursor-chat';
 
 const App = () => {
@@ -106,9 +108,9 @@ const App = () => {
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
+render(App, document.getElementById('root'));
 ```
+
 -   `presenceURL: string`: to set the WebSocket service address.
 -   `presenceAuth: { type: 'publickey' | 'token'; publicKey?: string; endpoint?: string; }`: to set `presencejs` service Auth
 -   `room?: string`: to set room.

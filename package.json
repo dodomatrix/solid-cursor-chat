@@ -1,6 +1,6 @@
 {
   "name": "solid-cursor-chat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A SolidJS component for cursor chat",
   "keywords": [
     "CursorChat",
