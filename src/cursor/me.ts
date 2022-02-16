@@ -1,6 +1,6 @@
 import { fromEvent, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Presence } from '@yomo/presencejs';
+import Presence from '@yomo/presencejs';
 import Cursor from './cursor';
 import { getScale } from '../helper';
 import { CursorMessage, TextMessage, OfflineMessage } from '../types';

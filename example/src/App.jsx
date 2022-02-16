@@ -13,7 +13,7 @@ function App() {
             </p>
             <CursorChat
                 showLatency
-                presenceURL="wss://prsc.yomo.dev"
+                presenceURL="https://prsc.yomo.dev"
                 presenceAuth={{
                     type: 'token',
                     endpoint: '/.netlify/functions/presence-auth',

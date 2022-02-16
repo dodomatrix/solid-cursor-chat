@@ -1,6 +1,6 @@
 import { createSignal, onMount, onCleanup, For } from 'solid-js';
 import { filter } from 'rxjs/operators';
-import { Presence } from '@yomo/presencejs';
+import Presence from '@yomo/presencejs';
 import Me from './cursor/me';
 import Others from './cursor/others';
 import MeCursor from './MeCursor';

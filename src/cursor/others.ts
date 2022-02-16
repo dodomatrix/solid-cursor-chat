@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Presence } from '@yomo/presencejs';
+import Presence from '@yomo/presencejs';
 import Cursor from './cursor';
 import { getMousePosition } from '../helper';
 import { MovementMessage, TextMessage } from '../types';
