@@ -1,6 +1,6 @@
 {
   "name": "solid-cursor-chat",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A SolidJS component for cursor chat",
   "keywords": [
     "CursorChat",
@@ -30,7 +30,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@yomo/presencejs": "^1.0.0-alpha.1",
+    "@yomo/presencejs": "^1.0.0-alpha.2",
     "rxjs": "^6.6.6",
     "solid-js": "^1.3.6"
   },
