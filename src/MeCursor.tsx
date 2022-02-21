@@ -19,7 +19,8 @@ export default function MeCursor({
     let $input: HTMLInputElement | undefined;
 
     const onKeydown = (e: KeyboardEvent) => {
-        if (e.code === 'Slash') {
+        if (e.ctrlKey && e.code === 'Slash') {
+            e.preventDefault();
             setShowInput(true);
             setTimeout(() => {
                 $input && $input.focus();

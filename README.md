@@ -4,7 +4,7 @@
 
 A SolidJS component helps bring Figma's Cursor Chat to your web applications in less than 3 minutes, making real-time collaboration anywhere. based on [Presencejs](https://presence.yomo.run).
 
--   Press `/` to bring up the input box
+-   Press `Ctrl + /` to bring up the input box
 -   Press `ESC` to close the input box
 
 ## 🤹🏻‍♀️ Quick Start

@@ -8,7 +8,7 @@ function App() {
         <div className="main">
             <img className="logo" src={logo} alt="logo" />
             <p className="tips">
-                Press <span>/</span> to bring up the input box <br /> Press{' '}
+                Press <span>Ctrl + /</span> to bring up the input box <br /> Press{' '}
                 <span>ESC</span> to close the input box
             </p>
             <CursorChat
@@ -18,6 +18,7 @@ function App() {
                     type: 'token',
                     endpoint: '/.netlify/functions/presence-auth',
                 }}
+                room='solid'
                 avatar={avatar}
             />
         </div>
