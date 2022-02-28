@@ -99,10 +99,7 @@ const App = () => {
         <CursorChat
             showLatency
             presenceURL="wss://prsc.yomo.dev"
-            presenceAuth={{
-                type: 'token',
-                endpoint: '/.netlify/functions/presence-auth',
-            }}
+            presenceAuthEndpoint="/.netlify/functions/presence-auth"
             avatar="https://cursor-chat-example.vercel.app/_next/image?url=%2Flogo.png&w=256&q=75"
         />
     );
@@ -111,8 +108,8 @@ const App = () => {
 render(App, document.getElementById('root'));
 ```
 
--   `presenceURL: string`: to set the WebSocket service address.
--   `presenceAuth: { type: 'publickey' | 'token'; publicKey?: string; endpoint?: string; }`: to set `presencejs` service Auth
+-   `presenceURL: string`: to set the YoMo's service address.
+-   `presenceAuthEndpoint: string`: to set api for getting access token
 -   `room?: string`: to set room.
 -   `showLatency?: boolean`: to show connected mesh server and the end-to-end latency.
 -   `avatar?: string`: to set avatar.

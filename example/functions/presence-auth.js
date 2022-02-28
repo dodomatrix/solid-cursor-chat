@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
     if (event.httpMethod === 'GET') {
@@ -35,7 +35,7 @@ exports.handler = async function (event, context) {
     } else {
         return {
             statusCode: 400,
-            body: JSON.stringify({  msg: '' }),
+            body: JSON.stringify({ msg: '' }),
         };
     }
 };
