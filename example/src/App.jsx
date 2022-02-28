@@ -8,17 +8,14 @@ function App() {
         <div className="main">
             <img className="logo" src={logo} alt="logo" />
             <p className="tips">
-                Press <span>Ctrl + /</span> to bring up the input box <br /> Press{' '}
-                <span>ESC</span> to close the input box
+                Press <span>Ctrl + /</span> to bring up the input box <br />{' '}
+                Press <span>ESC</span> to close the input box
             </p>
             <CursorChat
                 showLatency
                 presenceURL="https://prsc.yomo.dev"
-                presenceAuth={{
-                    type: 'token',
-                    endpoint: '/.netlify/functions/presence-auth',
-                }}
-                room='solid'
+                presenceAuthEndpoint="/.netlify/functions/presence-auth"
+                room="solid"
                 avatar={avatar}
             />
         </div>

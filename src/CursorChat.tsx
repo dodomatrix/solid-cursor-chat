@@ -12,7 +12,7 @@ import './styles/CursorChat.css';
 
 function CursorChat({
     presenceURL,
-    presenceAuth,
+    presenceAuthEndpoint,
     showLatency = false,
     room,
     name,
@@ -20,13 +20,7 @@ function CursorChat({
     theme = 'light',
 }: {
     presenceURL: string;
-    presenceAuth: {
-        type: 'publickey' | 'token';
-        // The public key in your Allegro Mesh project.
-        publicKey?: string;
-        // api for getting access token
-        endpoint?: string;
-    };
+    presenceAuthEndpoint: string;
     showLatency?: boolean;
     room?: string;
     name?: string;
@@ -56,7 +50,10 @@ function CursorChat({
 
     onMount(() => {
         yomo = new Presence(presenceURL, {
-            auth: presenceAuth,
+            auth: {
+                type: 'token',
+                endpoint: presenceAuthEndpoint,
+            },
         });
 
         yomo.on('connected', () => {
