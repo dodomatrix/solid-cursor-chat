@@ -1,5 +1,7 @@
 // import CursorChat from '../../dist/esm';
+// import '../../dist/esm/light.css'
 import CursorChat from 'solid-cursor-chat';
+import 'solid-cursor-chat/dist/esm/light.css';
 import logo from './assets/logo.png';
 import avatar from './assets/avatar.png';
 
@@ -16,7 +18,8 @@ function App() {
                 presenceURL="https://prsc.yomo.dev"
                 presenceAuthEndpoint="/.netlify/functions/presence-auth"
                 room="solid"
-                avatar={avatar}
+                // avatar={avatar}
+                name={`u-${new Date().getSeconds() % 9}`}
             />
         </div>
     );

@@ -43,6 +43,7 @@ export default function Latency({
                 <span
                     style={{
                         backgroundColor: latencyValue().backgroundColor,
+                        color: '#fff',
                     }}
                 >
                     {latencyValue().latency}ms
