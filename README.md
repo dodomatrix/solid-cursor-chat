@@ -94,8 +94,8 @@ Response data:
 import { render } from 'solid-js/web';
 import CursorChat from 'solid-cursor-chat';
 // Import theme styles
-// import 'solid-cursor-chat/dist/esm/light.css';
-import 'solid-cursor-chat/dist/esm/dark.css';
+// import 'solid-cursor-chat/dist/esm/xinghuang.css';
+import 'solid-cursor-chat/dist/esm/maolv.css';
 
 const App = () => {
     return (

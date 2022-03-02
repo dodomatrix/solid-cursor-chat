@@ -16,8 +16,8 @@ export default withSolid({
                 postcssImport(),
             ],
             inject: false,
-            include: '**/dark.css',
-            extract: 'dark.css',
+            include: '**/xinghuang.css',
+            extract: 'xinghuang.css',
         }),
         postcss({
             plugins: [
@@ -28,8 +28,8 @@ export default withSolid({
                 postcssImport(),
             ],
             inject: false,
-            include: '**/light.css',
-            extract: 'light.css',
+            include: '**/maolv.css',
+            extract: 'maolv.css',
         }),
         babel({ babelHelpers: 'bundled' }),
     ],

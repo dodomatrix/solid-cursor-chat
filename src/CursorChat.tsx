@@ -8,8 +8,8 @@ import OthersCursor from './OthersCursor';
 import { uuidv4 } from './helper';
 import { CursorMessage, OfflineMessage } from './types';
 
-import './styles/light.css';
-import './styles/dark.css';
+import './styles/maolv.css';
+import './styles/xinghuang.css';
 
 function CursorChat({
     presenceURL,
@@ -26,10 +26,6 @@ function CursorChat({
     name?: string;
     avatar?: string;
 }) {
-    if (name && avatar) {
-        console.warn('Do not set both name and avatar!');
-    }
-
     const ID = uuidv4();
 
     const me = new Me({

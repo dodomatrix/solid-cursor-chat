@@ -22,8 +22,6 @@ export default function MeCursor({
             setShowInput(true);
             setTimeout(() => {
                 if ($input) {
-                    $input.value =
-                        cursor.name && !cursor.avatar ? cursor.name + ': ' : '';
                     $input.focus();
                 }
             }, 500);
@@ -68,37 +66,35 @@ export default function MeCursor({
         <div class="online-cursor-wrapper__cursor" ref={$container}>
             <CursorIcon color={cursor.color} />
             <Latency cursor={cursor} showLatency={showLatency} />
-            <Show
-                when={!!cursor.avatar}
-                fallback={
-                    <Show when={cursor.name && !cursor.avatar && !showInput()}>
+            <div
+                class="online-cursor-wrapper__tail-box"
+                style={showInput() ? 'border-bottom-left-radius: 30px;' : ''}
+            >
+                <div class="online-cursor-wrapper__user">
+                    <Show when={!!cursor.avatar}>
+                        <img
+                            class="online-cursor-wrapper__avatar"
+                            src={cursor.avatar}
+                            alt="avatar"
+                        />
+                    </Show>
+                    <Show when={!!cursor.name}>
                         <span class="online-cursor-wrapper__name">
                             {cursor.name}
                         </span>
                     </Show>
-                }
-            >
-                <img
-                    class="online-cursor-wrapper__avatar"
-                    src={cursor.avatar}
-                    alt="avatar"
-                />
-            </Show>
-            <Show when={!!showInput()}>
-                <div class="online-cursor-wrapper__input-box">
-                    <span>{inputValue()}</span>
-                    <input
-                        ref={$input}
-                        style={
-                            cursor.name && !cursor.avatar && showInput()
-                                ? 'padding-left: 10px;'
-                                : ''
-                        }
-                        placeholder="Say something"
-                        onInput={onInput}
-                    />
                 </div>
-            </Show>
+                <Show when={!!showInput()}>
+                    <div class="online-cursor-wrapper__input-box">
+                        <span>{inputValue()}</span>
+                        <input
+                            ref={$input}
+                            placeholder="Say something"
+                            onInput={onInput}
+                        />
+                    </div>
+                </Show>
+            </div>
         </div>
     );
 }

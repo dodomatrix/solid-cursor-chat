@@ -39,34 +39,28 @@ export default function OthersCursor({
         <div class="online-cursor-wrapper__cursor" ref={$container}>
             <CursorIcon color={cursor.color} />
             <Latency cursor={cursor} showLatency={showLatency} />
-            <Show
-                when={!!cursor.avatar}
-                fallback={
-                    <Show when={cursor.name && !cursor.avatar && !msg()}>
+            <div
+                class="online-cursor-wrapper__tail-box"
+                style={msg() ? 'border-bottom-left-radius: 30px;' : ''}
+            >
+                <div class="online-cursor-wrapper__user">
+                    <Show when={!!cursor.avatar}>
+                        <img
+                            class="online-cursor-wrapper__avatar"
+                            src={cursor.avatar}
+                            alt="avatar"
+                        />
+                    </Show>
+                    <Show when={!!cursor.name}>
                         <span class="online-cursor-wrapper__name">
                             {cursor.name}
                         </span>
                     </Show>
-                }
-            >
-                <img
-                    class="online-cursor-wrapper__avatar"
-                    src={cursor.avatar}
-                    alt="avatar"
-                />
-            </Show>
-            <Show when={!!msg()}>
-                <div
-                    class="online-cursor-wrapper__text"
-                    style={
-                        cursor.name && !cursor.avatar && msg()
-                            ? 'padding-left: 10px;'
-                            : ''
-                    }
-                >
-                    {msg()}
                 </div>
-            </Show>
+                <Show when={!!msg()}>
+                    <div class="online-cursor-wrapper__text">{msg()}</div>
+                </Show>
+            </div>
         </div>
     );
 }

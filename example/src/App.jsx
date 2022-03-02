@@ -1,9 +1,9 @@
 // import CursorChat from '../../dist/esm';
-// import '../../dist/esm/light.css'
+// import '../../dist/esm/xinghuang.css'
 import CursorChat from 'solid-cursor-chat';
-import 'solid-cursor-chat/dist/esm/light.css';
+import 'solid-cursor-chat/dist/esm/maolv.css';
 import logo from './assets/logo.png';
-import avatar from './assets/avatar.png';
+// import avatar from './assets/avatar.png';
 
 function App() {
     return (
@@ -19,7 +19,7 @@ function App() {
                 presenceAuthEndpoint="/.netlify/functions/presence-auth"
                 room="solid"
                 // avatar={avatar}
-                name={`u-${new Date().getSeconds() % 9}`}
+                name="osdodo"
             />
         </div>
     );
