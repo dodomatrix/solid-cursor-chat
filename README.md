@@ -93,6 +93,9 @@ Response data:
 ```javascript
 import { render } from 'solid-js/web';
 import CursorChat from 'solid-cursor-chat';
+// Import theme styles
+// import 'solid-cursor-chat/dist/esm/light.css';
+import 'solid-cursor-chat/dist/esm/dark.css';
 
 const App = () => {
     return (

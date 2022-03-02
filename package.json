@@ -1,6 +1,6 @@
 {
   "name": "solid-cursor-chat",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A SolidJS component helps bring Figma's Cursor Chat to your web applications in less than 3 minutes, making real-time collaboration anywhere. based on Presencejs",
   "keywords": [
     "CursorChat",
