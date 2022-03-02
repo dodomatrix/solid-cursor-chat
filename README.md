@@ -114,7 +114,6 @@ render(App, document.getElementById('root'));
 -   `showLatency?: boolean`: to show connected mesh server and the end-to-end latency.
 -   `avatar?: string`: to set avatar.
 -   `name?: string`: to set name.
--   `theme?: 'light' | 'dark'`: The background color of the chat box, the default value is "light".
 
 ## LICENSE
 

@@ -8,7 +8,8 @@ import OthersCursor from './OthersCursor';
 import { uuidv4 } from './helper';
 import { CursorMessage, OfflineMessage } from './types';
 
-import './styles/CursorChat.css';
+import './styles/light.css';
+import './styles/dark.css';
 
 function CursorChat({
     presenceURL,
@@ -17,7 +18,6 @@ function CursorChat({
     room,
     name,
     avatar,
-    theme = 'light',
 }: {
     presenceURL: string;
     presenceAuthEndpoint: string;
@@ -25,8 +25,11 @@ function CursorChat({
     room?: string;
     name?: string;
     avatar?: string;
-    theme?: 'light' | 'dark';
 }) {
+    if (name && avatar) {
+        console.warn('Do not set both name and avatar!');
+    }
+
     const ID = uuidv4();
 
     const me = new Me({
@@ -122,14 +125,10 @@ function CursorChat({
 
     return (
         <div class="online-cursor-wrapper">
-            <MeCursor cursor={me} showLatency={showLatency} theme={theme} />
+            <MeCursor cursor={me} showLatency={showLatency} />
             <For each={getOthers()}>
                 {(item) => (
-                    <OthersCursor
-                        cursor={item}
-                        showLatency={showLatency}
-                        theme={theme}
-                    />
+                    <OthersCursor cursor={item} showLatency={showLatency} />
                 )}
             </For>
         </div>

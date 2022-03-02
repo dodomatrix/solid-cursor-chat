@@ -7,13 +7,11 @@ import { MousePosition } from './types';
 export default function OthersCursor({
     cursor,
     showLatency,
-    theme,
 }: {
     cursor: Others;
     showLatency: boolean;
-    theme?: 'light' | 'dark';
 }) {
-    const [msg, setMsg] = createSignal(cursor.name);
+    const [msg, setMsg] = createSignal('');
 
     let $container: HTMLDivElement | undefined;
 
@@ -41,7 +39,16 @@ export default function OthersCursor({
         <div class="online-cursor-wrapper__cursor" ref={$container}>
             <CursorIcon color={cursor.color} />
             <Latency cursor={cursor} showLatency={showLatency} />
-            <Show when={!!cursor.avatar}>
+            <Show
+                when={!!cursor.avatar}
+                fallback={
+                    <Show when={cursor.name && !cursor.avatar && !msg()}>
+                        <span class="online-cursor-wrapper__name">
+                            {cursor.name}
+                        </span>
+                    </Show>
+                }
+            >
                 <img
                     class="online-cursor-wrapper__avatar"
                     src={cursor.avatar}
@@ -50,9 +57,12 @@ export default function OthersCursor({
             </Show>
             <Show when={!!msg()}>
                 <div
-                    class={`online-cursor-wrapper__text ${
-                        theme === 'light' ? 'light' : 'dark'
-                    }`}
+                    class="online-cursor-wrapper__text"
+                    style={
+                        cursor.name && !cursor.avatar && msg()
+                            ? 'padding-left: 10px;'
+                            : ''
+                    }
                 >
                     {msg()}
                 </div>

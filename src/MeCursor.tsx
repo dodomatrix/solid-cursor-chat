@@ -7,11 +7,9 @@ import { MousePosition } from './types';
 export default function MeCursor({
     cursor,
     showLatency,
-    theme,
 }: {
     cursor: Me;
     showLatency: boolean;
-    theme?: 'light' | 'dark';
 }) {
     const [showInput, setShowInput] = createSignal(false);
     const [inputValue, setInputValue] = createSignal('');
@@ -23,7 +21,11 @@ export default function MeCursor({
             e.preventDefault();
             setShowInput(true);
             setTimeout(() => {
-                $input && $input.focus();
+                if ($input) {
+                    $input.value =
+                        cursor.name && !cursor.avatar ? cursor.name + ': ' : '';
+                    $input.focus();
+                }
             }, 500);
         }
 
@@ -35,8 +37,7 @@ export default function MeCursor({
     };
 
     const onInput = (e: any) => {
-        const inputStr = e.target.value;
-        const inputValue = inputStr.replace(/^\//, '');
+        const inputValue = e.target.value;
         setInputValue(inputValue);
         cursor.sendMessage(inputValue);
     };
@@ -67,7 +68,16 @@ export default function MeCursor({
         <div class="online-cursor-wrapper__cursor" ref={$container}>
             <CursorIcon color={cursor.color} />
             <Latency cursor={cursor} showLatency={showLatency} />
-            <Show when={!!cursor.avatar}>
+            <Show
+                when={!!cursor.avatar}
+                fallback={
+                    <Show when={cursor.name && !cursor.avatar && !showInput()}>
+                        <span class="online-cursor-wrapper__name">
+                            {cursor.name}
+                        </span>
+                    </Show>
+                }
+            >
                 <img
                     class="online-cursor-wrapper__avatar"
                     src={cursor.avatar}
@@ -75,14 +85,15 @@ export default function MeCursor({
                 />
             </Show>
             <Show when={!!showInput()}>
-                <div
-                    class={`online-cursor-wrapper__input-box ${
-                        theme === 'light' ? 'light' : 'dark'
-                    }`}
-                >
+                <div class="online-cursor-wrapper__input-box">
                     <span>{inputValue()}</span>
                     <input
                         ref={$input}
+                        style={
+                            cursor.name && !cursor.avatar && showInput()
+                                ? 'padding-left: 10px;'
+                                : ''
+                        }
                         placeholder="Say something"
                         onInput={onInput}
                     />

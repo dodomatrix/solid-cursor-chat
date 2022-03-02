@@ -23,7 +23,6 @@
     top: -10px;
     left: 38px;
     font-size: 12px;
-    color: #fff;
 }
 
 .online-cursor-wrapper__latency > span {
@@ -40,7 +39,15 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: #fff;
+}
+
+.online-cursor-wrapper__name {
+    z-index: 2;
+    position: absolute;
+    top: 22px;
+    left: 34px;
+    padding: 4px 6px;
+    border-radius: 4px;
 }
 
 .online-cursor-wrapper__text {
@@ -93,15 +100,5 @@
     border: 0;
     margin: 0;
     box-sizing: content-box !important;
-    padding: 0 10px 0 40px;
-}
-
-.light {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-}
-
-.dark {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    padding: 0 10px 0 42px;
 }
